@@ -1,0 +1,22 @@
+<h1>Por Pais</h1>
+<hr />
+
+<div class="row">
+  <div class="col">
+    <app-country-search-field
+      (onEnter)="search($event)"
+      (onDebounce)="suggestions($event)"
+      placeholder="Buscar Pais ..."
+      ></app-country-search-field>
+  </div>
+</div>
+
+<hr />
+<div *ngIf="notFound" class="alert alert-danger">
+  No se encontro nada con el Nombre:
+</div>
+<div *ngIf="!notFound" class="row">
+  <div class="col">
+    <app-country-table [countriesList]="countriesList"></app-country-table>
+  </div>
+</div>
