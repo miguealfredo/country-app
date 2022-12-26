@@ -7,7 +7,7 @@
 <ng-template #divCountry>
     <div class="row">
         <div class="col">
-            <h1>Pais: <small>{{country.name}}</small></h1>
+            <h1>Pais: <small>{{country.name.common}}</small></h1>
         </div>
     </div>
     <div class="row">
@@ -31,7 +31,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <!-- <spanclass="badge bg-primary mr-1">{{country.translations.ara.common}}</span> -->
+                <!-- <span class="badge bg-primary mr-1" *ngFor="let translations of country.translations">{{country.translations}}</span> -->
                 <hr>
                 <span class="badge bg-primary mr-1">{{country.translations | json}}</span>
             </div>

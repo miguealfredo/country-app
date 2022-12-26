@@ -1,1 +1,24 @@
-<p>region works!</p>
+<div class="animate__animated animate__fadeIn animate__faster">
+
+    <h1>Por por Region</h1> <small>{{activeRegion | titlecase }}</small>
+    <hr />
+
+    <h5>Seleccione la Region</h5>
+</div>
+<div class="row">
+  <div class="col">
+    <!-- [class.btn-secondary] = "region == activeRegion" -->
+
+    <button *ngFor="let region of regions"
+        class="btn"
+        [class]="getClassCSS(region.key)"
+        (click)="activateRegion(region)">
+        {{region.name | titlecase }}
+    </button>
+  </div>
+</div>
+<div  class="row">
+    <div class="col">
+      <app-country-table [countriesList]="regionsList"></app-country-table>
+    </div>
+  </div>

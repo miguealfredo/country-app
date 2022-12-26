@@ -1,13 +1,15 @@
-<h1>Por Capital</h1>
-<hr />
-
-<div class="row">
-  <div class="col">
-    <app-country-search-field
-      (onEnter)="search($event)"
-      (onDebounce)="suggestions($event)"
-      placeholder="Buscar Capital ..."
-      ></app-country-search-field>
+<div class="animate__animated animate__fadeIn animate__faster">
+  <h1>Por Capital</h1>
+  <hr />
+  
+  <div class="row">
+    <div class="col">
+      <app-country-search-field
+        (onEnter)="search($event)"
+        (onDebounce)="suggestions($event)"
+        placeholder="Buscar Capital ..."
+        ></app-country-search-field>
+    </div>
   </div>
 </div>
 

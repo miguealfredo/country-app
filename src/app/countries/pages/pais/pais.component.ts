@@ -10,10 +10,13 @@ import { PaisService } from '../../services/pais.service';
 export class PaisComponent {
   notFound: boolean = false;
   countriesList: CountryInterface[] = [];
-
-  constructor(private paisService: PaisService) {}
+  countriesSuggestionsList: CountryInterface[] = [];
+  nameCountry:string=''
+  constructor(private paisService: PaisService) {};
+  showSuggestions:boolean = false;
 
   search(nameCountry: string) {
+    this.showSuggestions = false;
     this.notFound = false;
     this.paisService.searchContry(nameCountry).subscribe(
       countries => {
@@ -29,5 +32,13 @@ export class PaisComponent {
     );
   }
 
-  suggestions(nameCountry: string) {}
+  suggestions(nameCountry: string) {
+    this.notFound = false;
+    this.showSuggestions = true;
+    this.nameCountry =  nameCountry;
+    this.paisService.searchContry(nameCountry).subscribe(
+      countries => this.countriesSuggestionsList = countries.splice(0,5),
+      (err) => this.countriesSuggestionsList = []
+    )
+  }
 }

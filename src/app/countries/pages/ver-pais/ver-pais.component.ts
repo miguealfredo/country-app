@@ -10,7 +10,7 @@ import { PaisService } from '../../services/pais.service';
   styleUrls: ['./ver-pais.component.css'],
 })
 export class VerPaisComponent implements OnInit {
-  country!: CountryInterface
+  country!: CountryInterface;
   /**
    * 
    * @param activatedRoute para suscrivirnos a cualquier cambio de la url
@@ -35,6 +35,9 @@ export class VerPaisComponent implements OnInit {
      switchMap( ({code}) => this.paisService.getCountryByCode(code) ),
      tap( console.log )
      )
-     .subscribe(country => this.country = country[0])
+     .subscribe(country => {
+      this.country = country[0];
+      console.log(this.country)
+    })
   }
 }
